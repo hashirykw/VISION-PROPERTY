@@ -1,0 +1,159 @@
+@page: project
+@title: Project — Vision Properties, Karachi
+@desc: Project details, amenities and location from Vision Properties, Karachi. Message us for current prices, availability and payment plans.
+===CSS===
+.pd{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,4vw,56px);align-items:center}
+.frame{position:relative;border-radius:var(--r-5);padding:12px;perspective:1400px}
+.frame .ph{border-radius:30px;aspect-ratio:4/3.1;transform:translateZ(30px);box-shadow:0 40px 80px -40px rgba(0,0,0,.8);cursor:zoom-in}
+.frame:hover .ph img{transform:scale(1.04)}
+.frame .chips{position:absolute;top:28px;left:28px;right:28px;z-index:5;display:flex;justify-content:space-between;gap:8px;transform:translateZ(60px)}
+.frame .zoom{position:absolute;right:28px;bottom:28px;z-index:5;transform:translateZ(60px)}
+.pd h1{margin-top:18px}
+.pd .loc{display:flex;gap:8px;align-items:flex-start;color:var(--ink-2);margin-top:18px;font-size:16px}
+.pd .loc svg{width:18px;height:18px;color:var(--red-2);flex:none;margin-top:3px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:26px}
+.fact{padding:16px 18px;border-radius:18px}
+.fact small{display:block;font:500 10.5px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px}
+.fact b{font:700 15px/1.3 var(--f-head)}
+.pd .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.body2{display:grid;grid-template-columns:1.25fr .75fr;gap:24px;align-items:start}
+.ov{padding:clamp(24px,3.4vw,44px)}
+.ov p.big{font-size:clamp(17px,1.4vw,20px);color:var(--ink-2);line-height:1.7}
+.amen{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-top:26px}
+.amen div{display:flex;align-items:center;gap:12px;padding:13px 14px;border-radius:14px;background:var(--panel-2);border:1px solid var(--line);font-size:14.5px;font-weight:500;transition:border-color .3s,transform .4s var(--e-out)}
+.amen div:hover{border-color:var(--red);transform:translateY(-2px)}
+.amen i{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:var(--red-a);color:var(--red-2);flex:none}
+.amen i svg{width:14px;height:14px}
+.side{position:sticky;top:110px;padding:26px;display:grid;gap:14px}
+.side h3{font:700 20px/1.2 var(--f-head)}
+.mapw{margin-top:24px;border-radius:var(--r-4);overflow:hidden;padding:10px}
+.mapw iframe{display:block;width:100%;height:clamp(280px,32vw,400px);border:0;border-radius:22px;filter:grayscale(.3) contrast(1.05)}
+:root[data-theme="dark"] .mapw iframe{filter:invert(.9) hue-rotate(180deg) grayscale(.4) contrast(.95)}
+.pn{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
+.pn a{padding:20px 22px;border-radius:22px;display:flex;flex-direction:column;gap:6px}
+.pn a:last-child{text-align:right;align-items:flex-end}
+.pn small{font:500 10.5px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.pn b{font:700 17px/1.2 var(--f-head)}
+.lb{position:fixed;inset:0;z-index:175;display:grid;place-items:center;padding:20px;background:rgba(5,5,7,.88);backdrop-filter:blur(10px);opacity:0;pointer-events:none;transition:opacity .4s}
+.lb.open{opacity:1;pointer-events:auto}
+.lb img{max-width:min(1200px,100%);max-height:86vh;border-radius:20px;box-shadow:var(--shadow);transform:scale(.95);transition:transform .5s var(--e-out)}
+.lb.open img{transform:none}
+.lb .ibtn{position:absolute;top:20px;right:20px;color:#fff}
+.nf{text-align:center;padding:40px 0}
+.pd .info{grid-column:2;grid-row:1 / span 2}
+.pd .thumbs{grid-column:1;margin-top:-12px}
+@media (max-width:980px){.pd .info,.pd .thumbs{grid-column:auto;grid-row:auto}.pd .thumbs{margin-top:-14px}}
+.thumbs{display:flex;gap:8px;margin-top:12px;overflow-x:auto;padding:2px;scrollbar-width:none}
+.thumbs::-webkit-scrollbar{display:none}
+.thumbs button{flex:none;width:76px;height:58px;border-radius:12px;overflow:hidden;border:2px solid transparent;opacity:.55;transition:opacity .3s,border-color .3s,transform .4s var(--e-out)}
+.thumbs button:hover{opacity:.9;transform:translateY(-2px)}
+.thumbs button.on{opacity:1;border-color:var(--red)}
+.thumbs .ph{width:100%;height:100%}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(150px,16vw,220px);grid-auto-flow:dense;gap:12px;margin-top:22px;perspective:1400px}
+.gal button{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line-2);cursor:zoom-in;box-shadow:var(--shadow-s)}
+.gal button:nth-child(6n+1){grid-column:span 2;grid-row:span 2}
+.gal button:nth-child(6n+4){grid-row:span 2}
+.gal .ph{position:absolute;inset:0}
+.gal button:hover .ph img{transform:scale(1.07)}
+.gal button::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(8,8,10,.55));opacity:0;transition:opacity .4s}
+.gal button:hover::after{opacity:1}
+.gal .n{position:absolute;right:10px;bottom:10px;z-index:2;font:500 11px/1 var(--f-mono);color:#fff;opacity:0;transition:opacity .4s}
+.gal button:hover .n{opacity:1}
+@media (max-width:760px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.gal button:nth-child(6n+1){grid-column:span 2}}
+@media (max-width:980px){.pd,.body2{grid-template-columns:1fr}.side{position:static}}
+@media (max-width:520px){.facts{grid-template-columns:1fr 1fr}.pn{grid-template-columns:1fr}.pn a:last-child{text-align:left;align-items:flex-start}}
+===HTML===
+<section class="phero" data-shape="house" data-shape-x=".1" data-shape-y=".1" data-shape-s=".9" data-shape-a=".35" data-shape-ma=".2">
+  <div class="wrap" id="top">
+    <div class="crumbs rv"><a href="index.html">Home</a><i></i><a href="projects.html">Projects</a><i></i><span id="crumb">Project</span></div>
+    <div class="pd" id="pd"></div>
+  </div>
+</section>
+<section class="sec" style="padding-top:20px" data-shape="plan" data-shape-x="-.55" data-shape-y=".1" data-shape-s=".6" data-shape-a=".4" data-shape-ma=".2">
+  <div class="wrap">
+    <div class="body2" id="body2"></div>
+    <div class="pn" id="pn"></div>
+  </div>
+</section>
+<section class="sec tight" data-shape="skyline" data-shape-s="1" data-shape-a=".45" data-shape-ma=".25">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="label rv">You may also like</span><h2 class="title split">More from our <em>portfolio.</em></h2></div><a class="btn btn-glass rv" href="projects.html">All projects</a></div>
+    <div class="pgrid" id="rel"></div>
+  </div>
+</section>
+===JS===
+VP.boot(function(){
+  const {$, $$, esc, D, I, img, wa} = VP, P = D.P;
+  const slug = new URLSearchParams(location.search).get('p');
+  const i0 = Math.max(0, P.findIndex(p => p.s === slug)), p = P.find(x => x.s === slug);
+  if (!p) {
+    $('#pd').outerHTML = `<div class="nf glass" style="padding:50px;border-radius:30px"><h1 class="title">Project not <em>found.</em></h1><p class="lead" style="margin:16px auto 24px">That link may be old. Browse every project we market instead.</p><a class="btn btn-red" href="projects.html">See all projects ${I.arrow}</a></div>`;
+    $('#body2').remove(); $('#pn').remove();
+  } else {
+    document.title = `${p.n} — Vision Properties, Karachi`;
+    const md = document.querySelector('meta[name="description"]'); if (md) md.content = (p.d || `${p.n}, ${p.loc}. Marketed by Vision Properties, Karachi.`).slice(0, 155);
+    $('#crumb').textContent = p.n;
+    const msg = `Hi Vision Properties, I'm interested in ${p.n}. Please share availability, prices and the payment plan.`;
+    const facts = [['Type', p.type], ['Units', p.units], ['Building', p.floors], ['Developer', p.dev], ['Area', p.area]].filter(f => f[1]).slice(0, 4);
+    $('#pd').innerHTML = `
+      <div class="frame glass rv" data-tilt="6" data-spot>
+        <div class="chips"><span class="chip dark">${esc(p.type)}</span>${p.hot ? `<span class="chip red">${esc(p.hot)}</span>` : ''}</div>
+        <div id="mainPh">${img(p.pics[0], p.n, '', true)}</div>
+        <button class="btn btn-glass btn-sm zoom" id="zoom" style="color:#fff;background:rgba(14,14,17,.45);border-color:rgba(255,255,255,.2)">View full image</button>
+        <span class="glare"></span>
+      </div>
+      ${p.pics.length > 1 ? `<div class="thumbs rv d1" id="thumbs">${p.pics.map((x,j) => `<button class="${j?'':'on'}" data-j="${j}" aria-label="Photo ${j+1}">${img(x, '')}</button>`).join('')}</div>` : ''}
+      <div class="info">
+        <span class="label rv">${esc(p.area)}</span>
+        <h1 class="display split" style="font-size:clamp(38px,5vw,72px)">${esc(p.n)}</h1>
+        <p class="loc rv d1">${I.pin}${esc(p.loc)}</p>
+        <div class="facts">${facts.map((f,i) => `<div class="fact glass rv d${i}" data-spot><small>${f[0]}</small><b>${esc(f[1])}</b></div>`).join('')}</div>
+        <div class="acts rv d3">
+          <a class="btn btn-wa" href="${wa(msg)}" target="_blank" rel="noopener" data-mag>${I.wa}Ask on WhatsApp</a>
+          <a class="btn btn-glass" href="tel:+923302152999" data-mag>${I.phone}Call us</a>
+          <button class="ibtn" id="share" aria-label="Share this project" title="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg></button>
+        </div>
+      </div>`;
+    const desc = p.d || `${p.n} is one of the projects listed with Vision Properties. Unit sizes, prices and payment plans change often, so we share them directly rather than show figures that could be out of date. Message or call us and we'll send you the latest details, floor plans and the current payment schedule.`;
+    const am = p.a.length ? `<div class="amen">${p.a.map(a => `<div><i>${I.check}</i>${esc(a)}</div>`).join('')}</div>` : `<p class="muted" style="margin-top:20px">Ask us for this project's full amenity list.</p>`;
+    const q = encodeURIComponent(p.loc.includes('Karachi') ? p.loc : p.loc + ', Karachi');
+    $('#body2').innerHTML = `
+      <div>
+        ${p.pics.length > 1 ? `<div class="ov glass rv" style="margin-bottom:24px"><div style="display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap"><div><span class="label">Gallery</span><h3 class="title-sm" style="margin-top:12px">${p.pics.length} photos of <em>${esc(p.n)}</em></h3></div><button class="btn btn-glass btn-sm" id="galAll">View all photos</button></div><div class="gal" id="gal">${p.pics.map((x,j) => `<button data-j="${j}" aria-label="Open photo ${j+1}">${img(x, p.n)}<span class="n">${String(j+1).padStart(2,'0')}</span></button>`).join('')}</div></div>` : ''}
+        <div class="ov glass rv" data-spot><span class="label">Overview</span><p class="big" style="margin-top:18px">${esc(desc)}</p>
+          <h3 class="title-sm" style="margin-top:34px">Amenities &amp; <em>features</em></h3>${am}</div>
+        <div class="mapw glass rv"><iframe title="Map of ${esc(p.n)}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=${q}&output=embed"></iframe></div>
+      </div>
+      <aside class="side glass rv d1" data-spot>
+        <span class="label">Enquire about this project</span>
+        <h3>Get prices, availability and the payment plan for ${esc(p.n)}.</h3>
+        <div class="field"><label for="en">Your name</label><input class="inp" id="en" autocomplete="name"></div>
+        <div class="field"><label for="ep">Phone</label><input class="inp" id="ep" inputmode="tel" autocomplete="tel"></div>
+        <button class="btn btn-red btn-block" id="send" data-mag>Send on WhatsApp ${I.arrow}</button>
+        <p class="muted" style="font-size:13px">Opens WhatsApp with your message ready to send. Or call <a href="tel:+923302152999" style="color:var(--red-2)">0330 2152999</a>.</p>
+      </aside>`;
+    $('#send').addEventListener('click', () => {
+      const n = $('#en'), ph = $('#ep'); [n, ph].forEach(x => x.classList.remove('err'));
+      if (!n.value.trim()) { n.classList.add('err'); n.focus(); return; }
+      if (!/^[+\d][\d\s-]{6,}$/.test(ph.value.trim())) { ph.classList.add('err'); ph.focus(); return; }
+      VP.sfx.chime(); open(wa(`${msg}\nName: ${n.value.trim()}\nPhone: ${ph.value.trim()}`), '_blank', 'noopener');
+    });
+    $('#share').addEventListener('click', async () => {
+      const data = { title: p.n + ' — Vision Properties', url: location.href };
+      try { if (navigator.share) await navigator.share(data); else { await navigator.clipboard.writeText(location.href); VP.toast('Link copied'); } } catch (e) { }
+    });
+    const G = p.pics.map((x,j) => ({src:x.src, fb:x.fb, cap:`${p.n} · photo ${j+1} of ${p.pics.length}`}));
+    let cur = 0;
+    const setMain = j => { cur = j; $('#mainPh').innerHTML = img(p.pics[j], p.n); VP.wireImgs($('#mainPh')); $$('#thumbs button').forEach((b,k) => b.classList.toggle('on', k === j)); };
+    $('#zoom').addEventListener('click', e => { e.stopPropagation(); VP.lightbox(G, cur); });
+    $('#mainPh').addEventListener('click', () => VP.lightbox(G, cur));
+    if ($('#thumbs')) { $('#thumbs').addEventListener('click', e => { const b = e.target.closest('button'); if (b) setMain(+b.dataset.j); });
+      if (!VP.RM) { let t = setInterval(() => setMain((cur + 1) % p.pics.length), 5000); $('#thumbs').addEventListener('pointerenter', () => clearInterval(t)); $('.frame').addEventListener('pointerenter', () => clearInterval(t)); } }
+    if ($('#gal')) { $('#gal').addEventListener('click', e => { const b = e.target.closest('button'); if (b) VP.lightbox(G, +b.dataset.j); }); $('#galAll').addEventListener('click', () => VP.lightbox(G, 0)); }
+    const prev = P[(i0 - 1 + P.length) % P.length], next = P[(i0 + 1) % P.length];
+    $('#pn').innerHTML = `<a class="glass rv" href="project.html?p=${prev.s}" data-spot><small>← Previous</small><b>${esc(prev.n)}</b></a><a class="glass rv d1" href="project.html?p=${next.s}" data-spot><small>Next →</small><b>${esc(next.n)}</b></a>`;
+  }
+  const same = p ? P.filter(x => x !== p && x.f.some(f => p.f.includes(f))) : [];
+  const rel = same.concat(P.filter(x => x !== p && !same.includes(x) && x.d)).slice(0, 3);
+  $('#rel').innerHTML = rel.map((x,i) => VP.card(x, i)).join('');
+});

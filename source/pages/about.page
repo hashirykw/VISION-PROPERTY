@@ -1,0 +1,173 @@
+@page: about
+@title: About — Vision Properties, Karachi
+@desc: Vision Properties is a full-service real estate marketing and investment consulting company in North Nazimabad, Karachi. Our vision, mission, approach and process.
+===CSS===
+.ab{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,70px);align-items:center}
+.stack3{position:relative;height:clamp(380px,40vw,520px);perspective:1400px}
+.stack3 .layer{position:absolute;border-radius:26px;overflow:hidden;padding:8px;transition:transform .9s var(--e-out)}
+.stack3 .layer .ph{width:100%;height:100%;border-radius:20px}
+.stack3 .l1{left:0;top:6%;width:62%;height:70%}
+.stack3 .l2{right:0;top:0;width:46%;height:46%}
+.stack3 .l3{right:6%;bottom:0;width:52%;height:46%}
+.stack3 .badge{position:absolute;left:8%;bottom:4%;z-index:5;padding:16px 18px;border-radius:20px;display:flex;align-items:center;gap:12px}
+.stack3 .badge .seal{width:46px;height:46px}
+.stack3 .badge b{font:700 15px/1.2 var(--f-head);display:block}
+.stack3 .badge small{font-size:12px;color:var(--ink-3)}
+.vmg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;perspective:1400px}
+.vm{padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:16px;min-height:300px}
+.vm .q{font:400 clamp(21px,1.8vw,26px)/1.35 var(--f-serif);font-style:italic;color:var(--ink)}
+.vm .q::before{content:"\201C";display:block;font-size:64px;line-height:.6;color:var(--red-2);margin-bottom:6px}
+.vm .who{margin-top:auto;display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px dashed var(--line-2)}
+.vm .who i{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--red);color:#fff;font:800 15px/1 var(--f-head);font-style:normal}
+.vm .who b{font:700 15px/1.2 var(--f-head);display:block}
+.vm .who small{font-size:12px;color:var(--ink-3)}
+.vals{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;perspective:1400px}
+.val{padding:26px;min-height:250px;display:flex;flex-direction:column;gap:12px}
+.val .ic{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;background:var(--red-a);color:var(--red-2);margin-bottom:auto;transition:background .4s,color .4s,transform .6s var(--e-spring)}
+.val:hover .ic{background:var(--red);color:#fff;transform:rotate(-8deg) scale(1.06)}
+.val .ic svg{width:26px;height:26px}
+.val h3{font:700 18px/1.2 var(--f-head);margin-top:24px}
+.val p{font-size:14.5px;color:var(--ink-2)}
+.val .n{position:absolute;right:22px;top:18px;font:500 11px/1 var(--f-mono);color:var(--ink-4)}
+.proc{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,5vw,80px)}
+.proc .stick{position:sticky;top:120px;align-self:start}
+.tl{position:relative;padding-left:40px}
+.tl::before{content:"";position:absolute;left:13px;top:8px;bottom:8px;width:2px;background:repeating-linear-gradient(180deg,var(--line-3) 0 6px,transparent 6px 12px)}
+.tl .fill{position:absolute;left:13px;top:8px;width:2px;height:0;background:linear-gradient(var(--red-2),var(--red-3));border-radius:2px}
+.ti{position:relative;padding:26px;margin-bottom:16px}
+.ti::before{content:"";position:absolute;left:-34px;top:32px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:2px solid var(--line-3);transition:all .4s}
+.ti.lit::before{background:var(--red);border-color:var(--red);box-shadow:0 0 0 6px var(--red-a),0 0 18px var(--red-glow)}
+.ti .mono{color:var(--red-2)}
+.ti h3{font:700 clamp(19px,1.7vw,23px)/1.2 var(--f-head);margin:8px 0}
+.ti p{color:var(--ink-2);font-size:15px}
+.ti ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(160px,17vw,240px);grid-auto-flow:dense;gap:14px;perspective:1400px}
+.mosaic a{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line-2);box-shadow:var(--shadow-s)}
+.mosaic a.big{grid-column:span 2;grid-row:span 2}.mosaic a.tall{grid-row:span 2}.mosaic a.wide{grid-column:span 2}
+.mosaic .ph{position:absolute;inset:0}
+.mosaic a:hover .ph img{transform:scale(1.07)}
+.mosaic a::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(8,8,10,.8));pointer-events:none}
+.mosaic .cap{position:absolute;left:14px;right:14px;bottom:12px;z-index:3;color:#fff;display:flex;justify-content:space-between;align-items:flex-end;gap:8px;transform:translateZ(30px)}
+.mosaic .cap b{font:700 15px/1.2 var(--f-head);display:block}
+.mosaic .cap small{font-size:12px;color:rgba(255,255,255,.72)}
+.mosaic .cap .go{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.14);backdrop-filter:blur(8px);flex:none;transition:background .3s,transform .5s var(--e-out)}
+.mosaic a:hover .cap .go{background:var(--red);transform:rotate(-45deg)}
+.mosaic .cap .go svg{width:15px;height:15px}
+@media (max-width:860px){.mosaic{grid-template-columns:1fr 1fr;grid-auto-rows:170px}.mosaic a.wide{grid-column:span 2}}
+.logos{display:flex;gap:14px;width:max-content;animation:mq 34s linear infinite}
+.lwrap{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);padding:10px 0}
+.lwrap:hover .logos{animation-play-state:paused}
+.lg{width:180px;height:104px;border-radius:22px;display:grid;place-items:center;padding:16px;flex:none;background:rgba(255,255,255,.92);border:1px solid var(--line);transition:transform .5s var(--e-out)}
+.lg:hover{transform:translateY(-4px)}
+.lg img{max-width:100%;max-height:100%;object-fit:contain;filter:grayscale(1);opacity:.75;transition:all .4s}
+.lg:hover img{filter:none;opacity:1}
+.lg span{display:none;font:800 14px/1 var(--f-head);color:#171717;letter-spacing:.04em;text-transform:uppercase}
+.lg.nf img{display:none}.lg.nf span{display:block}
+@media (max-width:1000px){.ab,.proc{grid-template-columns:1fr}.proc .stick{position:static}.vmg{grid-template-columns:1fr}.vals{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.vals{grid-template-columns:1fr}.stack3{height:360px}}
+===HTML===
+<section class="phero" data-shape="globe" data-shape-x="-.1" data-shape-y=".05" data-shape-s=".9" data-shape-a=".45" data-shape-ma=".25">
+  <div class="wrap ab">
+    <div>
+      <div class="crumbs rv"><a href="index.html">Home</a><i></i><span>About</span></div>
+      <span class="label rv">About Vision Properties</span>
+      <h1 class="display split" style="margin-top:20px;max-width:11ch">Dedicated, experienced &amp; <em>reliable.</em></h1>
+      <p class="lead rv d2">We are a full-service real estate marketing and investment consulting company in North Nazimabad, Karachi. We're committed to helping you find your perfect property or investment opportunity, and to making buying, selling and renting simpler.</p>
+      <div class="rv d3" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:30px"><a class="btn btn-red" href="#process" data-mag>How we work</a><a class="btn btn-glass" href="contact.html" data-mag>Visit our office</a></div>
+    </div>
+    <div class="stack3 rv d2" id="stack3">
+      <div class="layer glass l1" data-depth="30" id="l1"></div>
+      <div class="layer glass l2" data-depth="70" id="l2"></div>
+      <div class="layer glass l3" data-depth="50" id="l3"></div>
+      <div class="badge glass" data-depth="90"><span class="seal" id="bSeal"></span><span><b>North Nazimabad</b><small>Block H, Main Food Street</small></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" data-shape="logo" data-shape-x=".55" data-shape-y=".3" data-shape-s=".6" data-shape-a=".4" data-shape-ma=".2">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="label rv">What we stand for</span><h2 class="title split">Dedicated to making a positive <em>impact.</em></h2></div></div>
+    <div class="vmg">
+      <div class="vm glass rv" data-tilt="5" data-spot><span class="label lift-s">Our vision</span><p class="q lift-s">To become a trusted name in real estate by helping people make smart, secure and valuable property investments, while shaping better communities for the future.</p><div class="who lift-s"><i>V</i><span><b>Vision</b><small>Where we're going</small></span></div><span class="glare"></span></div>
+      <div class="vm glass rv d1" data-tilt="5" data-spot><span class="label lift-s">Our mission</span><p class="q lift-s">To provide honest guidance, transparent dealings and reliable real estate solutions, assisting clients at every step with professionalism, integrity and care.</p><div class="who lift-s"><i>M</i><span><b>Mission</b><small>How we get there</small></span></div><span class="glare"></span></div>
+      <div class="vm glass rv d2" data-tilt="5" data-spot><span class="label lift-s">Our approach</span><p class="q lift-s">Expertise, modern digital marketing that finds qualified buyers, and transparent communication, so selling is faster and buying is simpler.</p><div class="who lift-s"><i>A</i><span><b>Approach</b><small>What sets us apart</small></span></div><span class="glare"></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tight" data-shape="skyline" data-shape-s="1.1" data-shape-a=".35" data-shape-ma=".2">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="label rv">Our portfolio</span><h2 class="title split">Projects we're proud to <em>represent.</em></h2></div><a class="btn btn-glass rv d1" href="projects.html" data-mag>See all projects</a></div>
+    <div class="mosaic" id="mosaic"></div>
+  </div>
+</section>
+
+<section class="sec" data-shape="key" data-shape-x="-.55" data-shape-y=".3" data-shape-s=".6" data-shape-a=".45" data-shape-ma=".2">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="label rv">Why choose us</span><h2 class="title split">Four things we <em>promise.</em></h2></div><p class="lead rv d1">The commitments behind every deal, whether you're buying your first home or growing a portfolio.</p></div>
+    <div class="vals">
+      <div class="val glass rv" data-tilt data-spot><span class="n">01</span><span class="ic lift"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg></span><div class="lift-s"><h3>Expertise &amp; experience</h3><p>A team that knows Karachi's projects, developers and corridors, and gives you straight advice.</p></div><span class="glare"></span></div>
+      <div class="val glass rv d1" data-tilt data-spot><span class="n">02</span><span class="ic lift"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span><div class="lift-s"><h3>Transparent communication</h3><p>Clear terms, clear paperwork, and updates you can follow at every stage.</p></div><span class="glare"></span></div>
+      <div class="val glass rv d2" data-tilt data-spot><span class="n">03</span><span class="ic lift"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg></span><div class="lift-s"><h3>Innovation</h3><p>Modern digital marketing and the latest trends, so your property reaches qualified buyers faster.</p></div><span class="glare"></span></div>
+      <div class="val glass rv d3" data-tilt data-spot><span class="n">04</span><span class="ic lift"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></span><div class="lift-s"><h3>A personal approach</h3><p>One dedicated team, a seamless and satisfying experience, and quality you can count on.</p></div><span class="glare"></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="process" data-shape="plan" data-shape-x=".5" data-shape-y=".1" data-shape-s=".7" data-shape-a=".45" data-shape-ma=".2">
+  <div class="wrap proc">
+    <div class="stick"><span class="label rv">How we work</span><h2 class="title split" style="margin-top:16px">From first call to <em>handed keys.</em></h2><p class="lead rv d1" style="margin-top:18px">Four clear steps, with one team beside you the whole way.</p><a class="btn btn-wa rv d2" style="margin-top:26px" href="https://wa.me/923302152999?text=Hi%20Vision%20Properties%2C%20I%27d%20like%20to%20start%20a%20consultation." target="_blank" rel="noopener" data-mag>Start with step one</a></div>
+    <div class="tl" id="tl"><span class="fill" id="tlFill"></span>
+      <div class="ti glass rv" data-spot><span class="mono">01 · Consult</span><h3>Tell us what you need</h3><p>Your budget, your preferred area, and whether you're buying to live in or to invest. One conversation by call, WhatsApp or at our North Nazimabad office.</p><ul><li class="chip">Budget</li><li class="chip">Area</li><li class="chip">Live or invest</li></ul></div>
+      <div class="ti glass rv" data-spot><span class="mono">02 · Shortlist</span><h3>Matched projects, compared honestly</h3><p>We shortlist options from the developer projects we market and compare locations, unit types and payment plans side by side, including the trade-offs.</p><ul><li class="chip">Location</li><li class="chip">Unit type</li><li class="chip">Payment plan</li></ul></div>
+      <div class="ti glass rv" data-spot><span class="mono">03 · Visit &amp; verify</span><h3>See it in person</h3><p>We arrange site and showroom visits with you and walk you through the paperwork, so you know exactly what you're buying.</p><ul><li class="chip">Site visit</li><li class="chip">Documents</li></ul></div>
+      <div class="ti glass rv" data-spot><span class="mono">04 · Book &amp; beyond</span><h3>Booking, installments and after-sales</h3><p>We help with booking and the installment schedule. When you're ready to sell or rent, we're still the call you make.</p><ul><li class="chip">Booking</li><li class="chip">Installments</li><li class="chip">Resale &amp; rent</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tight" data-shape="globe" data-shape-s=".85" data-shape-a=".4" data-shape-ma=".2" data-shape-spin=".12">
+  <div class="wrap" style="text-align:center">
+    <span class="label rv">Our affiliations</span>
+    <h2 class="title split" style="margin:16px auto 34px;max-width:18ch">Bringing you the most reliable <em>options.</em></h2>
+  </div>
+  <div class="lwrap rv"><div class="logos" id="logos"></div></div>
+</section>
+
+<section class="sec tight" data-shape="logo" data-shape-x=".5" data-shape-s=".7" data-shape-a=".5" data-shape-ma=".25">
+  <div class="wrap">
+    <div class="cta rv" data-spot>
+      <div class="rings"><i></i><i></i><i></i></div>
+      <div style="position:relative;z-index:3"><span class="label">Visit us</span><h2 class="title" style="margin-top:14px">Come and meet the <em>team.</em></h2><p class="lead" style="margin-top:14px">B-115, Block H, Main Food Street, North Nazimabad, Karachi. Call before you visit and we'll make sure the right person is there.</p></div>
+      <div class="acts" style="z-index:3"><a class="btn btn-red" href="https://goo.gl/maps/ib6KtAXq7yTiw2hF7" target="_blank" rel="noopener" data-mag>Get directions</a><a class="btn btn-glass" href="tel:+923302152999" data-mag>Call 0330 2152999</a></div>
+    </div>
+  </div>
+</section>
+===JS===
+VP.boot(function(){
+  const {$, $$, D, img, esc} = VP;
+  $('#l1').innerHTML = img(D.STOCK.meeting, 'Consultation');
+  $('#l2').innerHTML = img(D.STOCK.keys, 'Handing over keys');
+  $('#l3').innerHTML = img(D.STOCK.handshake, 'Closing the deal');
+  $('#bSeal').innerHTML = `<img src="${$('.brand .seal img').src}" alt="">`;
+  /* 3D parallax stack */
+  const st = $('#stack3');
+  if (VP.FINE && !VP.RM) {
+    st.addEventListener('pointermove', e => { const r = st.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      $$('[data-depth]', st).forEach(l => { const d = +l.dataset.depth; l.style.transform = `translate3d(${x * d * .5}px,${y * d * .5}px,0) rotateY(${x * 10}deg) rotateX(${-y * 10}deg)`; }); });
+    st.addEventListener('pointerleave', () => $$('[data-depth]', st).forEach(l => l.style.transform = ''));
+  }
+  const M = [['saima-waterfront',0,'big'],['saima-marina-residence',0,'tall'],['roomi-icon',1,''],['saars-3',0,''],['paari-palace',1,'wide'],['saima-greens',1,''],['saima-jinnah-mall-residence',1,''],['saima-dreams',1,'wide'],['e-square',1,''],['saima-marina-residence',4,'']];
+  $('#mosaic').innerHTML = M.map(([s,k,c],i) => { const p = D.P.find(x => x.s === s), x = p.pics[Math.min(k, p.pics.length - 1)];
+    return `<a class="${c} rv d${i%4}" href="project.html?p=${p.s}" data-tilt="5" data-spot>${img(x, p.n)}<span class="cap"><span><b>${esc(p.n)}</b><small>${esc(p.area)}</small></span><span class="go">${VP.I.ne}</span></span><span class="glare"></span></a>`; }).join('');
+  /* timeline fill */
+  const tl = $('#tl'), fill = $('#tlFill'), items = $$('.ti', tl);
+  const upd = () => { const r = tl.getBoundingClientRect(), p = Math.min(1, Math.max(0, (innerHeight * .6 - r.top) / r.height));
+    fill.style.height = (p * (r.height - 16)) + 'px';
+    items.forEach(it => it.classList.toggle('lit', it.getBoundingClientRect().top < innerHeight * .6)); };
+  addEventListener('scroll', upd, {passive:true}); upd();
+  /* logos */
+  const L = D.AFF.map(a => `<div class="lg">${VP.rawImg(a, a.n)}<span>${esc(a.n)}</span></div>`).join('');
+  $('#logos').innerHTML = L + L.replace(/alt="[^"]*"/g, 'alt=""');
+  $$('#logos img').forEach(im => im.addEventListener('vpfail', () => im.parentNode.classList.add('nf')));
+});
