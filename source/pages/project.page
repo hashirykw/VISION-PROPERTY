@@ -49,6 +49,13 @@
 .thumbs button:hover{opacity:.9;transform:translateY(-2px)}
 .thumbs button.on{opacity:1;border-color:var(--red)}
 .thumbs .ph{width:100%;height:100%}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.plans button{position:relative;aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:#fff;border:1px solid var(--line-2);cursor:zoom-in;transition:transform .5s var(--e-out),box-shadow .4s}
+.plans button:hover{transform:translateY(-4px);box-shadow:var(--shadow-s)}
+.plans .ph{position:absolute;inset:8px;background:#fff}
+.plans .ph img{object-fit:contain}
+.plans .chip{position:absolute;left:10px;bottom:10px;z-index:2;background:var(--red);border-color:var(--red);color:#fff}
+@media (max-width:560px){.plans{grid-template-columns:1fr 1fr}}
 .gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(150px,16vw,220px);grid-auto-flow:dense;gap:12px;margin-top:22px;perspective:1400px}
 .gal button{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line-2);cursor:zoom-in;box-shadow:var(--shadow-s)}
 .gal button:nth-child(6n+1){grid-column:span 2;grid-row:span 2}
@@ -120,6 +127,7 @@ VP.boot(function(){
     $('#body2').innerHTML = `
       <div>
         ${p.pics.length > 1 ? `<div class="ov glass rv" style="margin-bottom:24px"><div style="display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap"><div><span class="label">Gallery</span><h3 class="title-sm" style="margin-top:12px">${p.pics.length} photos of <em>${esc(p.n)}</em></h3></div><button class="btn btn-glass btn-sm" id="galAll">View all photos</button></div><div class="gal" id="gal">${p.pics.map((x,j) => `<button data-j="${j}" aria-label="Open photo ${j+1}">${img(x, p.n)}<span class="n">${String(j+1).padStart(2,'0')}</span></button>`).join('')}</div></div>` : ''}
+        ${p.planPics.length ? `<div class="ov glass rv" style="margin-bottom:24px"><span class="label">Floor plans</span><h3 class="title-sm" style="margin-top:12px">Layouts at <em>${esc(p.n)}</em></h3><p class="muted" style="margin-top:8px;font-size:14px">Type C 1-bed layouts across the tower's floor bands. Ask us for 2, 3 and 4-bed plans.</p><div class="plans" id="plans">${p.planPics.map((x,j) => `<button data-j="${j}" aria-label="Open floor plan ${j+1}">${img(x, 'Floor plan ' + (j+1))}<span class="chip">Plan ${String(j+1).padStart(2,'0')}</span></button>`).join('')}</div></div>` : ''}
         <div class="ov glass rv" data-spot><span class="label">Overview</span><p class="big" style="margin-top:18px">${esc(desc)}</p>
           <h3 class="title-sm" style="margin-top:34px">Amenities &amp; <em>features</em></h3>${am}</div>
         <div class="mapw glass rv"><iframe title="Map of ${esc(p.n)}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=${q}&output=embed"></iframe></div>
@@ -149,6 +157,7 @@ VP.boot(function(){
     $('#mainPh').addEventListener('click', () => VP.lightbox(G, cur));
     if ($('#thumbs')) { $('#thumbs').addEventListener('click', e => { const b = e.target.closest('button'); if (b) setMain(+b.dataset.j); });
       if (!VP.RM) { let t = setInterval(() => setMain((cur + 1) % p.pics.length), 5000); $('#thumbs').addEventListener('pointerenter', () => clearInterval(t)); $('.frame').addEventListener('pointerenter', () => clearInterval(t)); } }
+    if ($('#plans')) { const PL = p.planPics.map((x,j) => ({src:x.src, fb:x.fb, cap:`${p.n} · floor plan ${j+1}`})); $('#plans').addEventListener('click', e => { const b = e.target.closest('button'); if (b) VP.lightbox(PL, +b.dataset.j); }); }
     if ($('#gal')) { $('#gal').addEventListener('click', e => { const b = e.target.closest('button'); if (b) VP.lightbox(G, +b.dataset.j); }); $('#galAll').addEventListener('click', () => VP.lightbox(G, 0)); }
     const prev = P[(i0 - 1 + P.length) % P.length], next = P[(i0 + 1) % P.length];
     $('#pn').innerHTML = `<a class="glass rv" href="project.html?p=${prev.s}" data-spot><small>← Previous</small><b>${esc(prev.n)}</b></a><a class="glass rv d1" href="project.html?p=${next.s}" data-spot><small>Next →</small><b>${esc(next.n)}</b></a>`;

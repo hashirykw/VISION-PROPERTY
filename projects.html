@@ -534,14 +534,15 @@ textarea.inp{height:auto;min-height:120px;padding:14px 18px;resize:vertical}
 const VP_DATA = (() => {
   const U = 'https://visionproperties.pk/wp-content/uploads/';
   const STD = ['Car parking', 'Modern lifts', 'Power backup', 'CCTV monitoring', 'Gym', 'Prayer area', "Children's play area", 'Natural gas & water', 'Entrance lobby'];
-  const MARINA = ['2024/04/samina-marina.jpg', '2024/04/Rectangle-7-1.png', '2024/04/Rectangle-6-1.png', '2024/04/Rectangle-9.jpg', '2024/04/Rectangle-70.jpg', '2024/04/Rectangle-72.png', '2024/04/Rectangle-73.png', '2024/04/Rectangle-74.png', '2024/04/Rectangle-75.jpg', '2024/04/Rectangle-14.jpg', '2024/04/Rectangle-16.jpg', '2024/04/Rectangle-17-1024x505-1.jpg', '2024/04/Rectangle-20.jpg', '2024/04/Rectangle-19-1.png', '2024/04/Rectangle-27.jpg', '2024/04/Rectangle-87.jpg', '2024/04/Rectangle-89.png', '2024/04/Rectangle-32-1.png', '2024/04/Rectangle-33-1.png', '2024/04/Rectangle-34-3.png'];
+  const MARINA = ['2024/04/samina-marina.jpg', '2024/04/Rectangle-17-1024x505-1.jpg', '2024/04/Rectangle-19-1.png', '2024/04/Rectangle-14.jpg', '2024/04/Rectangle-16.jpg', '2024/04/Rectangle-20.jpg', '2024/04/Rectangle-27.jpg', '2024/04/Rectangle-6-1.png', '2024/04/Rectangle-7-1.png', '2024/04/Rectangle-87.jpg', '2024/04/Rectangle-89.png', '2024/04/Rectangle-33-1.png', '2024/04/Rectangle-32-1.png', '2024/04/Rectangle-34-3.png'];
+  const MARINA_PLANS = ['2024/04/Rectangle-9.jpg', '2024/04/Rectangle-70.jpg', '2024/04/Rectangle-72.png', '2024/04/Rectangle-73.png', '2024/04/Rectangle-74.png', '2024/04/Rectangle-75.jpg'];
   /* f = filters: sea | m9 | ja (Jinnah Ave / University Rd) | nn (North Nazimabad) | apt | plot | com */
   const P = [
     { s: 'saima-waterfront', n: 'Saima Waterfront', g: ['2024/01/waterfall.jpg', '2024/01/Saima-Water-Front-3.jpg'], f: ['sea', 'apt'], hot: 'Sea-facing', area: 'DHA Phase VIII',
       loc: 'Plot #7, Crescent Bay, DHA Phase VIII, Karachi', type: 'Ultra-luxury apartments', units: '1, 2, 3 & 4 bed', floors: '40 storeys', dev: 'Waterfront Enterprises (Saima Group)',
       d: 'A 40-storey residential tower on the DHA Phase VIII waterfront by the Arabian Sea. It is marketed on its sea views and on the calm of living away from the city, and it is a short walk from a central park with green avenues and a children\'s play area.',
       a: ['Earthquake-resistant structure', 'Branded elevators & cargo lift', 'Swimming pool', 'Sauna & Jacuzzi', 'Modern gym', 'Gaming & indoor games', 'Standby generators', 'Fire-fighting on every floor', 'CCTV & armed guards', '5 floors of parking', 'Elegant reception lobby', 'In-house prayer area'] },
-    { s: 'saima-marina-residence', n: 'Saima Marina Residence', g: MARINA, f: ['sea', 'apt'], hot: '41 storeys', area: 'DHA Phase VIII',
+    { s: 'saima-marina-residence', n: 'Saima Marina Residence', g: MARINA, plans: MARINA_PLANS, f: ['sea', 'apt'], hot: '41 storeys', area: 'DHA Phase VIII',
       loc: 'DHA Phase VIII, along the Arabian Sea, Karachi', type: 'Luxury apartments', units: '1 to 4 bed', floors: '41 storeys', dev: 'ZSZ Group',
       d: 'Sea-view luxury apartments in a 41-storey tower in DHA Phase VIII, designed for modern living with contemporary amenities. The developer, ZSZ Group, has more than three decades of reputation in housing and construction.',
       a: ['Car parking', 'Gym', 'RO plant', 'Sea views'] },
@@ -627,7 +628,7 @@ const VP_DATA = (() => {
   /* local-first image paths: images/2024-04-Rectangle-9.jpg ← uploads/2024/04/Rectangle-9.jpg */
   const local = path => 'images/' + path.replace(/\//g, '-');
   const pic = path => ({ src: local(path), fb: U + path });
-  P.forEach(p => { p.pics = p.g.map(pic); p.src = p.pics[0].src; p.fb = p.pics[0].fb; p.a = p.a || []; p.d = p.d || ''; });
+  P.forEach(p => { p.pics = p.g.map(pic); p.planPics = (p.plans || []).map(pic); p.src = p.pics[0].src; p.fb = p.pics[0].fb; p.a = p.a || []; p.d = p.d || ''; });
 
   /* Stock photography (Unsplash, used only as illustrative lifestyle imagery) */
   const UN = id => ({ src: 'images/stock-' + id + '.jpg', fb: `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1600&q=80` });
