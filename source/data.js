@@ -114,7 +114,7 @@ const VP_DATA = (() => {
     luxe: UN('photo-1512917774080-9991f1c4c750')
   };
 
-  const AFF = [['Bahria', '2021/05/bharia-150x150.png'], ['Emaar', '2023/11/emmar-1-150x150.png'], ['Saima', '2023/11/saima-1-150x150.png'], ['Roomi City', '2021/05/roomicitylogo-1-150x150.png'], ['Paari', '2021/05/paarilogo-150x150.png'], ['City', '2023/11/city-1-150x150.png'], ['Gulam', '2023/11/gulam-1-150x150.png'], ['LIS', '2023/11/lis-1-150x150.png']].map(a => Object.assign({ n: a[0] }, pic(a[1])));
+  const AFF = [['Bahria Town', '2021/05/bharia-150x150.png'], ['Emaar', '2023/11/emmar-1-150x150.png'], ['Saima Group', '2023/11/saima-1-150x150.png'], ['Roomi City', '2021/05/roomicitylogo-1-150x150.png'], ['Paari Builders', '2021/05/paarilogo-150x150.png'], ['DHA City', '2023/11/city-1-150x150.png'], ['Gulmohar City', '2023/11/gulam-1-150x150.png'], ['LIS Developers', '2023/11/lis-1-150x150.png']].map(a => Object.assign({ n: a[0] }, pic(a[1])));
 
   const C = {
     wa: '923302152999', waShow: '0330 2152999',
@@ -130,7 +130,7 @@ const VP_DATA = (() => {
     ['Which areas of Karachi do you cover?', 'We market projects across Karachi, including the DHA Phase VIII seafront, the M-9 Super Highway and Motorway, Jinnah Avenue and University Road, Shahra-e-Faisal, North Nazimabad, Civil Lines and Gulzar-e-Hijri.'],
     ['Are installment plans available?', 'Many of the projects we market offer installment or flexible payment plans, Paari Palace and Saima Greens among them. Plans differ by project and change over time, so WhatsApp us the project name and we\'ll send you the current schedule.'],
     ['Can you help me sell or rent out my property?', 'Yes. Alongside buying, we help clients sell faster and more economically, using modern digital marketing to reach qualified buyers and tenants.'],
-    ['Which developers do you work with?', 'Our affiliations include Bahria, Emaar, Saima, Roomi City and Paari, among others.'],
+    ['Which developers do you work with?', 'Our affiliations include Bahria Town, Emaar, Saima Group, Roomi City, Paari Builders, DHA City, Gulmohar City and LIS Developers.'],
     ['I\'m investing, not buying to live in. Can you advise?', 'Yes. We are a real estate marketing and investment consulting company. Tell us your budget and time horizon and we\'ll take you through suitable options honestly. We won\'t promise returns, but we will give you a clear picture.'],
     ['Can I visit a project site before booking?', 'Yes. Message us the project you like and a time that suits you, and we\'ll arrange the visit.'],
     ['Why are prices not listed on the website?', 'Prices and payment plans change often. Rather than show figures that may be out of date, we send you the current rate sheet directly on WhatsApp or by phone.']

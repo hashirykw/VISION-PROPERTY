@@ -30,9 +30,11 @@ The workflow downloads every file listed in `images.txt` into `images/` and comm
 The pages are generated from `source/`:
 
 - `source/data.js` holds the projects, contact details, FAQ and image list.
-- `source/shared.css` and `source/shared.js` hold the design, the 3D particle background, the assistant and the shared components.
+- `source/shared.css` holds the design system: colour and type tokens, glass surfaces, buttons, cards, the rising-word stage, nav, chat and footer.
+- `source/engine.js` holds the shared behaviour: the 3D particle background, the blueprint-to-tower build animation, rails, the photo viewer, the assistant and the enquiry forms.
 - `source/pages/*.page` hold each page's own layout and script.
+- `images/ui/` holds the tower cut-outs, their blueprint line drawings and the transparent logo (dark and light versions).
 
 After editing, run `python3 source/build.py` from the repo root to regenerate the HTML pages. If you add or change images in `data.js`, regenerate `images.txt` as well, then run the workflow again.
 
-All colours are defined at the top of `source/shared.css` and come from the logo: red `#E32626`, black `#171717` and white.
+All colours are defined once at the top of `source/shared.css` (dark and light themes) and come from the logo: red, black and white.

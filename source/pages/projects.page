@@ -1,60 +1,101 @@
 @page: projects
-@title: Projects — Vision Properties, Karachi
-@desc: Browse every project Vision Properties markets: sea-facing towers in DHA Phase VIII, gated communities on the M-9, plots, malls and commercial projects across Karachi.
+@title: Projects · Vision Properties, Karachi
+@desc: Every project Vision Properties markets, grouped by corridor: the DHA Phase VIII seafront, Jinnah Avenue, North Nazimabad, the M-9 Super Highway, malls and commercial, and across the city.
+@head: <link rel="preload" as="image" href="images/ui/tower-marina.webp">
 ===CSS===
-.tools{position:sticky;top:96px;z-index:20;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:10px;border-radius:24px;margin-bottom:28px}
-.search{position:relative;flex:1 1 260px;max-width:420px}
-.search svg{position:absolute;left:18px;top:50%;width:18px;height:18px;transform:translateY(-50%);color:var(--ink-3)}
-.search .inp{height:48px;border-radius:999px;padding-left:48px}
-.tools .seg button{height:40px}
-.cnt{font:500 11px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);padding:0 10px}
-.empty{display:none;text-align:center;padding:60px 20px;border-radius:var(--r-4)}
-.empty.show{display:block}
-.empty h3{font:700 22px/1.2 var(--f-head);margin-bottom:8px}
-.legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
-@media (max-width:760px){.tools{top:84px;border-radius:20px}.tools .seg{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;width:100%;padding-bottom:2px}.tools .seg::-webkit-scrollbar{display:none}.tools .seg button{flex:none}.search{max-width:none}}
+.phero .stage { --word-top: 20%; --th: 90%; --ta: .5145; --tx: 72%; }
+@media (max-width: 860px) { .phero .stage { --tx: 64%; --th: 84%; --word-top: 26%; } }
+.tools { position: sticky; top: calc(14px + var(--nav-h) + 12px); z-index: 40; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 8px; border-radius: var(--r-pill); margin-bottom: clamp(36px, 5vw, 64px); transition: transform var(--dur-3) var(--ease-out); }
+body.nav-hidden .tools { transform: translateY(calc(-1 * (var(--nav-h) + 12px))); }
+.search { position: relative; flex: 0 0 280px; min-width: 0; }
+.search svg { position: absolute; left: 18px; top: 50%; width: 17px; height: 17px; transform: translateY(-50%); color: var(--ink-3); pointer-events: none; }
+.search .inp { height: 46px; border-radius: var(--r-pill); padding-left: 46px; }
+.jump { display: flex; gap: 4px; flex: 1 1 0; overflow-x: auto; scrollbar-width: none; min-width: 0; }
+.jump::-webkit-scrollbar { display: none; }
+.jump a { flex: none; height: 46px; display: inline-flex; align-items: center; gap: 8px; padding: 0 16px; border-radius: var(--r-pill); font-size: 14px; color: var(--ink-2); transition: background-color var(--dur-2), color var(--dur-2); white-space: nowrap; }
+.jump a:hover { color: var(--ink); background: var(--glass); }
+.jump a.on { color: var(--btn-on-ink); background: var(--btn-ink); }
+.jump a span { font: 500 11px/1 var(--font-mono); opacity: .6; }
+.cnt-l { font: 500 12px/1 var(--font-mono); color: var(--ink-3); padding: 0 14px; white-space: nowrap; }
+@media (max-width: 860px) { .tools { position: relative; top: auto; border-radius: var(--r-lg); } .search { flex: 1 1 100%; } .jump { flex: 1 1 100%; } .cnt-l { display: none; } }
+.grp { margin-bottom: clamp(56px, 7vw, 96px); scroll-margin-top: 170px; }
+.grp[hidden] { display: none; }
+.grp-h { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-lg); padding-bottom: var(--space-lg); margin-bottom: var(--space-lg); border-bottom: 1px solid var(--stroke); }
+.grp-h .h3 { font-size: clamp(24px, 2.6vw, 36px); }
+.grp-h p { color: var(--ink-3); font-size: 14.5px; margin-top: 6px; max-width: 60ch; }
+.grp-h .n { font: 500 12px/1 var(--font-mono); color: var(--ink-3); white-space: nowrap; }
+.grp .mrail { --cols: 4; --mcol: 76%; }
+.grp .pc.hide { display: none; }
+@media (max-width: 1100px) { .grp .mrail { --cols: 3; } }
+.empty { display: none; padding: 48px 24px; text-align: center; border-radius: var(--r-lg); }
+.empty.show { display: block; }
 ===HTML===
-<section class="phero" data-shape="plan" data-shape-x=".6" data-shape-y=".05" data-shape-s=".8" data-shape-a=".55" data-shape-ma=".3">
-  <div class="wrap">
-    <div class="crumbs rv"><a href="index.html">Home</a><i></i><span>Projects</span></div>
-    <span class="label rv">Our portfolio</span>
-    <h1 class="display split" style="margin-top:20px;max-width:11ch">Every project, one honest <em>shortlist.</em></h1>
-    <p class="lead rv d2"><span id="total">25</span> projects across Karachi, from sea-facing towers to gated communities, plots and malls. Pick a card for the details, then message us for current prices and availability.</p>
-  </div>
-</section>
-<section class="sec" style="padding-top:10px" data-shape="house" data-shape-x="-.62" data-shape-y=".2" data-shape-s=".55" data-shape-a=".45" data-shape-ma=".2">
-  <div class="wrap">
-    <div class="tools glass rv">
-      <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input class="inp" id="q" type="search" placeholder="Search by name or area…" aria-label="Search projects"></label>
-      <div class="seg" id="seg">
-        <button class="on" data-f="all">All</button><button data-f="sea">Sea-facing</button><button data-f="m9">Super Highway</button><button data-f="apt">Apartments</button><button data-f="ja">Jinnah Avenue</button><button data-f="plot">Plots</button><button data-f="com">Commercial</button><button data-f="nn">North Nazimabad</button>
-      </div>
-      <span class="cnt" id="cnt"></span>
+<section class="phero" data-shape="plan" data-shape-x="-.5" data-shape-y=".05" data-shape-s=".75" data-shape-a=".3" data-shape-ma=".12">
+  <div class="stage" id="pStage">
+    <div class="sky"></div><div class="stars"></div>
+    <div class="word" aria-hidden="true"><span>PROJECTS</span></div>
+    <div class="glow"></div>
+    <div class="tower">
+      <img class="t-bp" src="images/ui/tower-marina-bp.webp" alt="" fetchpriority="high">
+      <img class="t-real" src="images/ui/tower-marina.webp" alt="Saima Marina Residence, DHA Phase VIII, architectural render" fetchpriority="high">
+      <span class="t-scan" aria-hidden="true"></span>
+      <img class="t-xray" src="images/ui/tower-marina-bp.webp" alt="" aria-hidden="true">
     </div>
-    <div class="pgrid" id="grid"></div>
-    <div class="empty glass" id="empty"><h3>No projects match that search.</h3><p class="muted">Try another name or area, or <a href="https://wa.me/923302152999" style="color:var(--red-2)">ask us on WhatsApp</a>.</p></div>
+    <div class="ground"></div>
+  </div>
+  <div class="phero-ui wrap">
+    <nav class="crumbs rv" aria-label="Breadcrumb"><a href="index.html">Home</a><i></i><span>Projects</span></nav>
+    <h1 class="h1 split"><span id="tw">Twenty-five</span> addresses across <span class="accent">Karachi.</span></h1>
+    <p class="lead rv d2">Sea-facing towers, twin towers on Jinnah Avenue, gated communities, plots and malls. Open any project for its photos, details and location, then ask us for current prices.</p>
   </div>
 </section>
-<section class="sec tight" data-shape="logo" data-shape-x=".5" data-shape-s=".7" data-shape-a=".5" data-shape-ma=".25">
+
+<section class="sec" style="padding-top:clamp(36px,5vw,64px)" data-shape="house" data-shape-x=".62" data-shape-y=".2" data-shape-s=".5" data-shape-a=".3" data-shape-ma=".12">
   <div class="wrap">
-    <div class="cta rv" data-spot>
-      <div class="rings"><i></i><i></i><i></i></div>
-      <div style="position:relative;z-index:3"><span class="label">Can't decide?</span><h2 class="title" style="margin-top:14px">We'll shortlist <em>for you.</em></h2><p class="lead" style="margin-top:14px">Send your budget, preferred area and purpose. We'll come back with the projects that actually fit.</p></div>
-      <div class="acts" style="z-index:3"><a class="btn btn-wa" href="https://wa.me/923302152999?text=Hi%20Vision%20Properties%2C%20please%20shortlist%20projects%20for%20me.%20Budget%3A%20%20Area%3A%20" target="_blank" rel="noopener" data-mag>Shortlist on WhatsApp</a><a class="btn btn-glass" href="contact.html" data-mag>Enquiry form</a></div>
+    <div class="tools glass" role="search">
+      <label class="search"><span class="sr">Search projects</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input class="inp" id="q" type="search" placeholder="Search name, area or developer"></label>
+      <nav class="jump" id="jump" aria-label="Jump to corridor"></nav>
+      <span class="cnt-l" id="cnt" aria-live="polite"></span>
+    </div>
+    <div id="groups"></div>
+    <div class="empty glass" id="empty"><h2 class="h3">No project matches that search.</h2><p class="muted" style="margin-top:8px">Try another name or area, or ask our assistant.</p><div class="acts" style="justify-content:center"><button class="btn btn-glass btn-sm" data-chat data-i="chat">Ask the assistant</button></div></div>
+  </div>
+</section>
+
+<section class="sec tight" data-shape="logo" data-shape-x=".55" data-shape-s=".6" data-shape-a=".3" data-shape-ma=".12">
+  <div class="wrap">
+    <div class="stmt glass rv" data-spot>
+      <img class="bgt" src="images/ui/tower-excel-bp.webp" alt="" aria-hidden="true" loading="lazy">
+      <div style="position:relative;z-index:1"><h2 class="h2" style="font-size:clamp(30px,3.8vw,56px)">Not sure which one fits? <span class="accent">We'll shortlist.</span></h2><p class="lead" style="margin-top:16px">Share your budget, preferred area and whether you're buying to live or invest. We'll come back with the projects that fit.</p></div>
+      <div class="acts"><a class="btn btn-primary" href="contact.html#enquire" data-i="arrow">Start an enquiry</a><a class="btn btn-glass" href="tel:+923302152999" data-i="phone">Call us</a></div>
     </div>
   </div>
 </section>
 ===JS===
 VP.boot(function(){
-  const {$, $$, D} = VP, P = D.P;
-  $('#total').textContent = P.length;
-  const grid = $('#grid'); grid.innerHTML = P.map((p,i) => VP.card(p, i)).join('');
-  const cards = $$('.pcard', grid); let f = 'all', q = '';
-  const apply = () => { let n = 0;
-    cards.forEach(c => { const ok = (f === 'all' || c.dataset.f.split(' ').includes(f)) && (!q || c.dataset.name.includes(q)); c.classList.toggle('hide', !ok); if (ok) { n++; c.classList.add('in'); } });
+  const {$, $$, esc, D} = VP, P = D.P, find = s => P.find(p => p.s === s);
+  VP.stage($('#pStage'), { dur: 3000, delay: 300, fit: .98, max: 320 });
+  const G = [
+    { id: 'sea', n: 'DHA Phase VIII seafront', d: 'High-rise living by the Arabian Sea, in two towers of 40 and 41 storeys.', s: ['saima-waterfront', 'saima-marina-residence'] },
+    { id: 'ja', n: 'Jinnah Avenue & University Road', d: 'Twin towers, executive apartments and a mall near the airport and Malir Cantt.', s: ['roomi-icon', 'roomi-towers', 'saima-jinnah-mall-residence', 'saima-meadow-avenue'] },
+    { id: 'nn', n: 'North Nazimabad', d: 'Our home neighbourhood, from the main 320 ft road to Main Food Street.', s: ['saars-tower', 'saima-premium-empire', 'saima-paari-excellency', 'e-square'] },
+    { id: 'm9', n: 'Super Highway & M-9', d: 'Gated communities and plots with room to grow.', s: ['paari-palace', 'roomi-city'] },
+    { id: 'com', n: 'Malls & commercial', d: 'Mixed-use towers, malls, offices and business parks.', s: ['saima-mall-residency', 'saima-business-park', 'saima-center-point', 'paari-palace-corner'] },
+    { id: 'city', n: 'Across the city', d: 'Civil Lines, Shahra-e-Faisal, Gulzar-e-Hijri, Callachi Society and more.', s: ['saars-3', 'saima-greens', 'saima-dreams', 'al-reef-twin-tower', 'al-reef-residency', 'paari-avenue', 'saima-shield', 'saima-luxury-apartments', 'aa-beverly'] }
+  ];
+  $('#jump').innerHTML = G.map(g => `<a href="#${g.id}" data-g="${g.id}">${esc(g.n.replace(' & University Road', '').replace(' seafront', ''))} <span>${g.s.length}</span></a>`).join('');
+  $('#groups').innerHTML = G.map(g => `<section class="grp" id="${g.id}" aria-labelledby="h-${g.id}"><div class="grp-h"><div><h2 class="h3" id="h-${g.id}">${esc(g.n)}</h2><p>${esc(g.d)}</p></div><span class="n">${g.s.length} ${g.s.length === 1 ? 'project' : 'projects'}</span></div><div class="mrail">${g.s.map((s, i) => VP.card(find(s), i)).join('')}</div></section>`).join('');
+  const tw = ['Zero','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen','Twenty','Twenty-one','Twenty-two','Twenty-three','Twenty-four','Twenty-five','Twenty-six','Twenty-seven','Twenty-eight','Twenty-nine','Thirty'][P.length] || P.length;
+  $('#tw').textContent = tw;
+  const cards = $$('#groups .pc'), groups = $$('.grp');
+  const apply = q => { let n = 0;
+    cards.forEach(c => { const ok = !q || c.dataset.name.includes(q); c.classList.toggle('hide', !ok); if (ok) { n++; c.classList.add('in'); } });
+    groups.forEach(g => g.hidden = !$$('.pc:not(.hide)', g).length);
     $('#cnt').textContent = n + (n === 1 ? ' project' : ' projects'); $('#empty').classList.toggle('show', !n); };
-  const setF = k => { f = k; $$('#seg button').forEach(b => b.classList.toggle('on', b.dataset.f === k)); apply(); };
-  $('#seg').addEventListener('click', e => { const b = e.target.closest('button'); if (b) { setF(b.dataset.f); history.replaceState(null, '', b.dataset.f === 'all' ? location.pathname : '#' + b.dataset.f); } });
-  let t; $('#q').addEventListener('input', e => { clearTimeout(t); t = setTimeout(() => { q = e.target.value.trim().toLowerCase(); apply(); }, 120); });
-  const h = location.hash.slice(1); if (h && $(`#seg [data-f="${h}"]`)) setF(h); else apply();
+  let t; $('#q').addEventListener('input', e => { clearTimeout(t); t = setTimeout(() => apply(e.target.value.trim().toLowerCase()), 120); });
+  apply('');
+  /* jump highlight */
+  const jl = $$('#jump a');
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { jl.forEach(a => a.classList.toggle('on', a.dataset.g === e.target.id)); const a = jl.find(x => x.dataset.g === e.target.id), j = $('#jump'); if (a) j.scrollTo({ left: a.offsetLeft - j.clientWidth / 2 + a.offsetWidth / 2, behavior: 'smooth' }); } }), { rootMargin: '-40% 0px -55% 0px' });
+  groups.forEach(g => io.observe(g));
 });
