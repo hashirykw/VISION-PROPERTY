@@ -3,7 +3,7 @@
 @desc: Every project Vision Properties markets, grouped by corridor: the DHA Phase VIII seafront, Jinnah Avenue, North Nazimabad, the M-9 Super Highway, malls and commercial, and across the city.
 @head: <link rel="preload" as="image" href="images/ui/tower-marina.webp">
 ===CSS===
-.phero .stage { --word-top: 20%; --th: 90%; --ta: .5145; --tx: 72%; }
+.phero .stage { --word-top: 14%; --th: 90%; --ta: .5145; --tx: 72%; }
 @media (max-width: 860px) { .phero .stage { --tx: 64%; --th: 84%; --word-top: 26%; } }
 .tools { position: sticky; top: calc(14px + var(--nav-h) + 12px); z-index: 40; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 8px; border-radius: var(--r-pill); margin-bottom: clamp(36px, 5vw, 64px); transition: transform var(--dur-3) var(--ease-out); }
 body.nav-hidden .tools { transform: translateY(calc(-1 * (var(--nav-h) + 12px))); }
@@ -74,7 +74,7 @@ body.nav-hidden .tools { transform: translateY(calc(-1 * (var(--nav-h) + 12px)))
 ===JS===
 VP.boot(function(){
   const {$, $$, esc, D} = VP, P = D.P, find = s => P.find(p => p.s === s);
-  VP.stage($('#pStage'), { dur: 3000, delay: 300, fit: .98, max: 320 });
+  VP.stage($('#pStage'), { dur: 3000, delay: 300, fit: .84, max: 230 });
   const G = [
     { id: 'sea', n: 'DHA Phase VIII seafront', d: 'High-rise living by the Arabian Sea, in two towers of 40 and 41 storeys.', s: ['saima-waterfront', 'saima-marina-residence'] },
     { id: 'ja', n: 'Jinnah Avenue & University Road', d: 'Twin towers, executive apartments and a mall near the airport and Malir Cantt.', s: ['roomi-icon', 'roomi-towers', 'saima-jinnah-mall-residence', 'saima-meadow-avenue'] },

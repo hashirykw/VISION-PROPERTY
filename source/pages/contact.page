@@ -3,7 +3,7 @@
 @desc: Visit Vision Properties at B-115, Block H, Main Food Street, North Nazimabad, Karachi. Call 0330 2152999 or 0322 2710896, email info@visionproperties.pk, or send an enquiry.
 @head: <link rel="preload" as="image" href="images/ui/tower-water.webp">
 ===CSS===
-.phero .stage { --word-top: 20%; --th: 88%; --ta: .638; --tx: 73%; }
+.phero .stage { --word-top: 14%; --th: 88%; --ta: .638; --tx: 73%; }
 @media (max-width: 860px) { .phero .stage { --tx: 64%; --th: 80%; --word-top: 27%; } }
 .cg { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(20px, 3vw, 36px); align-items: start; }
 .lines { padding: clamp(18px, 2.4vw, 28px); border-radius: var(--r-xl); }
@@ -86,7 +86,7 @@
 ===JS===
 VP.boot(function(){
   const {$, $$, D, I} = VP;
-  VP.stage($('#cStage'), { dur: 3000, delay: 300, fit: .98, max: 320 });
+  VP.stage($('#cStage'), { dur: 3000, delay: 300, fit: .84, max: 230 });
   $('#i1').innerHTML = I.pin; $('#i1b').innerHTML = I.map; $('#i2').innerHTML = I.phone; $('#i3').innerHTML = I.wa; $('#i4').innerHTML = I.mail; $('#i5').innerHTML = I.share;
   $$('[data-copy]').forEach(b => { b.innerHTML = I.copy; b.addEventListener('click', () => VP.copy(b.dataset.copy, 'Copied ' + b.dataset.copy)); });
   $('#soc').innerHTML = [['fb', D.C.fb, 'Facebook'], ['ig', D.C.ig, 'Instagram'], ['yt', D.C.yt, 'YouTube']].map(s => `<a class="ib" href="${s[1]}" target="_blank" rel="noopener" aria-label="${s[2]}">${I[s[0]]}</a>`).join('');

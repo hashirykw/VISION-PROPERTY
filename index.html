@@ -519,7 +519,8 @@ textarea.inp { height: auto; min-height: 110px; padding: 14px 18px; resize: vert
 .phero .stage { position: absolute; inset: 0; }
 .phero-ui { position: relative; z-index: 6; min-height: min(88svh, 820px); display: flex; flex-direction: column; justify-content: flex-end; padding-top: calc(var(--nav-h) + 60px); padding-bottom: clamp(36px, 5vw, 64px); pointer-events: none; }
 .phero-ui > * { pointer-events: auto; }
-.phero-ui .h1 { max-width: 13ch; font-size: clamp(40px, 5.4vw, 84px); }
+.phero-ui .h1 { max-width: 14ch; font-size: clamp(38px, 4.6vw, 72px); }
+.phero-ui .crumbs { position: relative; z-index: 2; }
 .phero-ui .lead { margin-top: var(--space-lg); max-width: 48ch; }
 @media (max-width: 860px) {
   .phero, .phero-ui { min-height: 0; }
@@ -529,9 +530,9 @@ textarea.inp { height: auto; min-height: 110px; padding: 14px 18px; resize: vert
 /* developers */
 .devs { padding: clamp(22px, 3vw, 36px); display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.6fr); gap: var(--space-2xl); align-items: center; }
 .dgrid { --cols: 4; gap: 10px; }
-.lg { height: 96px; border-radius: 16px; display: grid; place-items: center; padding: 14px; background: var(--glass); border: 1px solid var(--stroke); transition: transform var(--dur-3) var(--ease-out), border-color var(--dur-2), background-color var(--dur-2); }
+.lg { height: 96px; min-width: 0; overflow: hidden; border-radius: 16px; display: grid; place-items: center; padding: 16px 18px; background: var(--glass); border: 1px solid var(--stroke); transition: transform var(--dur-3) var(--ease-out), border-color var(--dur-2), background-color var(--dur-2); }
 .lg:hover { transform: translateY(-3px); border-color: var(--stroke-3); background: var(--glass-2); }
-.lg img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.lg img { display: block; width: 100%; height: 100%; max-height: 64px; object-fit: contain; }
 :root[data-theme="light"] .lg img { filter: invert(1) brightness(.35); }
 .lg span { display: none; font: 700 13px/1 var(--font-display); color: var(--ink); text-transform: uppercase; letter-spacing: .06em; }
 .lg.nf img { display: none; } .lg.nf span { display: block; }
@@ -1684,7 +1685,7 @@ VP.boot(function(){
   const {$, $$, esc, D, img, I, clamp} = VP, P = D.P, find = s => P.find(p => p.s === s);
   /* hero: construct + method card synced */
   const li = $$('#methodList li');
-  VP.stage($('#heroStage'), { dur: 3600, delay: 500, fit: .96, max: 420, onProgress: p => {
+  VP.stage($('#heroStage'), { dur: 3600, delay: 500, fit: .9, max: 360, onProgress: p => {
     const a = clamp(p / .42, 0, 1), b = clamp((p - .3) / .7, 0, 1), c = clamp((p - .92) / .08, 0, 1);
     [a, b, c].forEach((v, i) => { li[i].style.setProperty('--p', v); li[i].querySelector('.pb i').style.setProperty('--p', v); });
     li.forEach((l, i) => l.classList.toggle('on', i === (p >= 1 ? 2 : p > .42 ? 1 : 0)));

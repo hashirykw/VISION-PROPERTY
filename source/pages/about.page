@@ -3,7 +3,7 @@
 @desc: Vision Properties is a full-service real estate marketing and investment consulting company in North Nazimabad, Karachi. Our vision, mission, values and process.
 @head: <link rel="preload" as="image" href="images/ui/tower-excel.webp">
 ===CSS===
-.phero .stage { --word-top: 18%; --th: 92%; --ta: .3654; --tx: 74%; }
+.phero .stage { --word-top: 14%; --th: 92%; --ta: .3654; --tx: 74%; }
 @media (max-width: 860px) { .phero .stage { --tx: 66%; --th: 86%; --word-top: 26%; } }
 .vmm { --cols: 3; --mcol: 84%; }
 .vm { padding: clamp(24px, 3vw, 36px); border-radius: var(--r-lg); display: flex; flex-direction: column; gap: var(--space-lg); min-height: 340px; }
@@ -131,7 +131,7 @@
 ===JS===
 VP.boot(function(){
   const {$, $$, esc, D, img, I} = VP, find = s => D.P.find(x => x.s === s);
-  VP.stage($('#aStage'), { dur: 3000, delay: 300, fit: .98, max: 320 });
+  VP.stage($('#aStage'), { dur: 3000, delay: 300, fit: .84, max: 230 });
   const tl = $('#tl'), fill = $('#tlFill'), items = $$('.ti', tl);
   const upd = () => { const r = tl.getBoundingClientRect(), p = Math.min(1, Math.max(0, (innerHeight * .6 - r.top) / r.height)); fill.style.height = (p * (r.height - 20)) + 'px'; items.forEach(it => it.classList.toggle('lit', it.getBoundingClientRect().top < innerHeight * .6)); };
   addEventListener('scroll', upd, { passive: true }); upd();

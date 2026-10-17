@@ -519,7 +519,8 @@ textarea.inp { height: auto; min-height: 110px; padding: 14px 18px; resize: vert
 .phero .stage { position: absolute; inset: 0; }
 .phero-ui { position: relative; z-index: 6; min-height: min(88svh, 820px); display: flex; flex-direction: column; justify-content: flex-end; padding-top: calc(var(--nav-h) + 60px); padding-bottom: clamp(36px, 5vw, 64px); pointer-events: none; }
 .phero-ui > * { pointer-events: auto; }
-.phero-ui .h1 { max-width: 13ch; font-size: clamp(40px, 5.4vw, 84px); }
+.phero-ui .h1 { max-width: 14ch; font-size: clamp(38px, 4.6vw, 72px); }
+.phero-ui .crumbs { position: relative; z-index: 2; }
 .phero-ui .lead { margin-top: var(--space-lg); max-width: 48ch; }
 @media (max-width: 860px) {
   .phero, .phero-ui { min-height: 0; }
@@ -529,9 +530,9 @@ textarea.inp { height: auto; min-height: 110px; padding: 14px 18px; resize: vert
 /* developers */
 .devs { padding: clamp(22px, 3vw, 36px); display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.6fr); gap: var(--space-2xl); align-items: center; }
 .dgrid { --cols: 4; gap: 10px; }
-.lg { height: 96px; border-radius: 16px; display: grid; place-items: center; padding: 14px; background: var(--glass); border: 1px solid var(--stroke); transition: transform var(--dur-3) var(--ease-out), border-color var(--dur-2), background-color var(--dur-2); }
+.lg { height: 96px; min-width: 0; overflow: hidden; border-radius: 16px; display: grid; place-items: center; padding: 16px 18px; background: var(--glass); border: 1px solid var(--stroke); transition: transform var(--dur-3) var(--ease-out), border-color var(--dur-2), background-color var(--dur-2); }
 .lg:hover { transform: translateY(-3px); border-color: var(--stroke-3); background: var(--glass-2); }
-.lg img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.lg img { display: block; width: 100%; height: 100%; max-height: 64px; object-fit: contain; }
 :root[data-theme="light"] .lg img { filter: invert(1) brightness(.35); }
 .lg span { display: none; font: 700 13px/1 var(--font-display); color: var(--ink); text-transform: uppercase; letter-spacing: .06em; }
 .lg.nf img { display: none; } .lg.nf span { display: block; }
@@ -562,7 +563,7 @@ textarea.inp { height: auto; min-height: 110px; padding: 14px 18px; resize: vert
 }
 
 /* ---------------- page: projects ---------------- */
-.phero .stage { --word-top: 20%; --th: 90%; --ta: .5145; --tx: 72%; }
+.phero .stage { --word-top: 14%; --th: 90%; --ta: .5145; --tx: 72%; }
 @media (max-width: 860px) { .phero .stage { --tx: 64%; --th: 84%; --word-top: 26%; } }
 .tools { position: sticky; top: calc(14px + var(--nav-h) + 12px); z-index: 40; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 8px; border-radius: var(--r-pill); margin-bottom: clamp(36px, 5vw, 64px); transition: transform var(--dur-3) var(--ease-out); }
 body.nav-hidden .tools { transform: translateY(calc(-1 * (var(--nav-h) + 12px))); }
@@ -1464,7 +1465,7 @@ VP.boot = pageInit => {
 addEventListener('DOMContentLoaded',function(){
 VP.boot(function(){
   const {$, $$, esc, D} = VP, P = D.P, find = s => P.find(p => p.s === s);
-  VP.stage($('#pStage'), { dur: 3000, delay: 300, fit: .98, max: 320 });
+  VP.stage($('#pStage'), { dur: 3000, delay: 300, fit: .84, max: 230 });
   const G = [
     { id: 'sea', n: 'DHA Phase VIII seafront', d: 'High-rise living by the Arabian Sea, in two towers of 40 and 41 storeys.', s: ['saima-waterfront', 'saima-marina-residence'] },
     { id: 'ja', n: 'Jinnah Avenue & University Road', d: 'Twin towers, executive apartments and a mall near the airport and Malir Cantt.', s: ['roomi-icon', 'roomi-towers', 'saima-jinnah-mall-residence', 'saima-meadow-avenue'] },

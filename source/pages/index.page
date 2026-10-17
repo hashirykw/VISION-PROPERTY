@@ -294,7 +294,7 @@ VP.boot(function(){
   const {$, $$, esc, D, img, I, clamp} = VP, P = D.P, find = s => P.find(p => p.s === s);
   /* hero: construct + method card synced */
   const li = $$('#methodList li');
-  VP.stage($('#heroStage'), { dur: 3600, delay: 500, fit: .96, max: 420, onProgress: p => {
+  VP.stage($('#heroStage'), { dur: 3600, delay: 500, fit: .9, max: 360, onProgress: p => {
     const a = clamp(p / .42, 0, 1), b = clamp((p - .3) / .7, 0, 1), c = clamp((p - .92) / .08, 0, 1);
     [a, b, c].forEach((v, i) => { li[i].style.setProperty('--p', v); li[i].querySelector('.pb i').style.setProperty('--p', v); });
     li.forEach((l, i) => l.classList.toggle('on', i === (p >= 1 ? 2 : p > .42 ? 1 : 0)));
